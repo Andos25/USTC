@@ -57,15 +57,11 @@ def round(text, key):
     R = xor(R, L)
     return text[32:]+R
 
-def address_block(text, keylist):
-    new_text = str()
-    for i in range(0, len(text), 64):
-        string = text[i:i+64]
-        string = ip_replacement(string)
-        for j in range(16):
-            string = round(string, keylist[j])
-        new_text += ip1_replacement(string[32:]+string[:32])
-    return new_text
+def address_block(string, keylist):
+    string = ip_replacement(string)
+    for j in range(16):
+        string = round(string, keylist[j])
+    return string
 
 def encrypt(plaintext, key):
     plaintext += ' ' * ((8-len(plaintext)%8)%8)
@@ -75,8 +71,13 @@ def encrypt(plaintext, key):
         print "the length of key is too short, at least 64, process will be stoped, please change and restart"
         return
     keylist = getkeylist(key)
-    ciphertext = address_block(plaintext, keylist)
-    ciphertext = bin_trans_hex(ciphertext)
+    new_text = str()
+    for i in range(0, len(plaintext), 64):
+        string = plaintext[i:i+64]
+        string = address_block(string, keylist)
+        new_text += ip1_replacement(string[32:]+string[:32])
+    # ciphertext = address_block(plaintext, keylist)
+    ciphertext = bin_trans_hex(new_text)
     return ciphertext
 
 def decryption(ciphertext, key):
@@ -84,8 +85,12 @@ def decryption(ciphertext, key):
     ciphertext = hex_trans_bin(ciphertext)
     keylist = getkeylist(key)
     keylist = keylist[::-1]
-    plaintext = address_block(ciphertext, keylist)
-    plaintext = to_chr(plaintext)
+    new_text = str()
+    for i in range(0, len(ciphertext), 64):
+        string = ciphertext[i:i+64]
+        string = address_block(string, keylist)
+        new_text += ip1_replacement(string[32:]+string[:32])
+    plaintext = to_chr(new_text)
     return plaintext
 
 if __name__ == '__main__':
