@@ -47,7 +47,6 @@ def decrypt(ciphertext, key, IV, s_length):
     plaintext = des.to_chr(new_text)
     return plaintext
 
-
 if __name__ == '__main__':
     s = "我是明文aajaldjlak*!)@(#&%)!@#(*(!)@"
     key = '我就(^_^)是密钥'
