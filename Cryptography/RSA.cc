@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include "RSA.h"
 
 using namespace std;
 
@@ -44,7 +45,6 @@ void power(unsigned long a,unsigned long p,unsigned long n,unsigned long &result
  bool Miller_Rabin(unsigned long n,unsigned int k)
  //重复k次调用
  {
-     // RandomNumber rnd;
      unsigned long a,result;
      bool composite=false;
      srand(time(0));
@@ -57,7 +57,7 @@ void power(unsigned long a,unsigned long p,unsigned long n,unsigned long &result
      return true;
  }
 
- int main(int argc, char const *argv[])
+int main(int argc, char const *argv[])
  {
      /* code */
     cout<<Miller_Rabin(102840519238013, 100)<<endl;

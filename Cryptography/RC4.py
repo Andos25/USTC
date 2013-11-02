@@ -5,8 +5,6 @@
 #SA13226158 of USTC
 #email: h.chujieandos@gmail.com
 
-import des
-
 single = (0,1,2,3,4,5,6,7,8,9)
 
 def init_S(key):
