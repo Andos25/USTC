@@ -47,6 +47,8 @@ getkeylist = partial( lambda pc1_replacement, shiftlist, k: shiftlist(pc1_replac
 #transform result to ascii
 to_chr = partial( lambda string: ''.join(chr(int(string[i:i+8], 2)) for i in range(0, len(string), 8)))
 
+stringtoascii = lambda string: [ord(i) for i in string]
+
 def round(text, key):
     R = text[32:]
     L = text[:32]
