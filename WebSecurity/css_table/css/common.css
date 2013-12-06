@@ -1,0 +1,73 @@
+.main-content{
+  position: relative;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.head{
+  position: inherit;
+  width: 60%;
+}
+
+.head > input{
+  display: inline-block;
+  border-radius: 25px;
+  height: 15px;
+  text-align: center;
+}
+
+.head > input:nth-child(2){
+  position: absolute;
+  right: 0%;
+}
+
+table{
+  width: 60%;
+  padding-top: 5px;
+  border-spacing: 0px 1px;
+  font: Tahoma;
+  font-size: 13px;
+}
+
+tr{
+  position: relative;
+}
+
+th:nth-child(1),
+th:nth-child(2){
+  width: 25%;
+}
+
+th{
+  width: 12.5%;
+  text-align: left;
+}
+
+th:nth-child(4),
+th:nth-child(5),
+th:nth-child(6),
+td:nth-child(4),
+td:nth-child(5),
+td:nth-child(6){
+  text-align: center;
+}
+
+.pagecount{
+  width: 60%;
+  position: relative;
+  text-align: center;
+}
+
+.pagecount > #button{
+  position: absolute;
+  right: 0px;
+}
+
+button{
+  border-radius: 25px;
+  background-color: #687291;
+}
+
+label{
+  display: inline-block;
+}

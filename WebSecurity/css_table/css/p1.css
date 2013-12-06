@@ -1,0 +1,16 @@
+tbody > tr:nth-child(odd){
+  background-color: #eeeff2;
+}
+
+tbody > tr:nth-child(even){
+  background-color: #dfe1e7;
+}
+
+thead > tr{
+    background-color: #687291;
+}
+
+tbody > tr:last-child,
+tbody > tr:nth-last-child(2){
+    display: none;
+}
