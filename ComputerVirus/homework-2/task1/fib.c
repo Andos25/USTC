@@ -9,22 +9,14 @@ int main(int argc, char *argv[])
     }
     n = atoi(argv[1]);
     __asm {
-        mov eax, [n]
-    fib:
-        mov ebx, 1
-        sub ebx, eax
-        push eax
-        jns finish
-        sub eax, 1
-        loop fib
-    finish:
         mov [r], 1
         mov ebx, 1
+        mov eax, 1
     calc:
-        pop eax
         mov edx, [r]
         cmp eax, [n]
-        je end
+        jns end
+        add eax, 1
         add [r], ebx
         mov ebx, edx
         loop calc
