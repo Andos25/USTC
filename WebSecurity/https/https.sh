@@ -3,7 +3,7 @@
 tar zxvf httpd-2.2.26.tar.gz
 #进入解压后目录
 cd httpd-2.2.26
-#配置编译选项并生成makefile文件，其中--prefix是指明安装的目录
+#配置编译选项并生成makefile文件，其中--prefix是指明安装的目录,enable是开启apache的附加功能
 sudo ./configure --prefix=/usr/local/apache2/ --enable-proxy --enable-ssl --enable-cgi --enable-rewrite --enable-so --enable-module=so
 #使用makefile文件进行编译
 sudo make
