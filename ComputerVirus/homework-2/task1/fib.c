@@ -9,18 +9,30 @@ int main(int argc, char *argv[])
     }
     n = atoi(argv[1]);
     __asm {
-        mov [r], 1
-        mov ebx, 1
-        mov eax, 1
-    calc:
-        mov edx, [r]
-        cmp eax, [n]
-        jns end
-        add eax, 1
-        add [r], ebx
-        mov ebx, edx
-        loop calc
+        mov ebx, [n]
+        mov ecx, 1
+        call fib
+        jmp end
+    fib:
+        cmp ecx, ebx
+        jns setvalue
+        dec ebx
+        push ebx
+        call fib
+        pop ebx
+        push edx
+        dec ebx
+        push ebx
+        call fib
+        pop ebx
+        pop eax
+        add edx, eax
+        ret
+    setvalue:
+        mov edx, 1
+        ret
     end:
+        mov [r], edx
     }
     printf("fib(%d) = %d\n", n, r);
     return 0;
