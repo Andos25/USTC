@@ -47,7 +47,7 @@ var display = function(pagecount) {
     var everypage = $("input#everypage").val();
     if(!everypage)
         everypage = 5;
-    if(everypage <= 0){
+    else if(everypage <= 0){
         alert("每页显示条目数设置非法,应为大于0的整数");
         return;
     }
